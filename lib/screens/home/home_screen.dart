@@ -1,10 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/modal/movie.dart';
-import 'package:movie_app/ui/movie_ui/movie_ui.dart';
+import 'package:movie_app/models/movie.dart';
+import 'package:movie_app/screens/movie_ui/movie_ui.dart';
 
 class MovieLiestView extends StatelessWidget {
+  static String routeName = "/home_screen";
   final List<Movie> movieList = Movie.getMovies();
 
   final List movies = [

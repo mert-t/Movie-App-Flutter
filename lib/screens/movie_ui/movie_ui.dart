@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/modal/movie.dart';
-
-
+import 'package:movie_app/models/movie.dart';
 
 class MovieDetailsThumbnail extends StatelessWidget {
+  static String routeName = "/movie_screen";
   final String thumbnail;
 
   const MovieDetailsThumbnail({Key? key, required this.thumbnail})
@@ -197,7 +196,7 @@ class MovieDetailsExtraPosters extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left:8.0),
+          padding: const EdgeInsets.only(left: 8.0),
           child: Text(
             "Pictures".toUpperCase(),
             style: TextStyle(fontSize: 14, color: Colors.black26),
@@ -205,23 +204,22 @@ class MovieDetailsExtraPosters extends StatelessWidget {
         ),
         Container(
           height: 170,
-          padding: EdgeInsets.symmetric(vertical:16.0,horizontal: 5.0),
+          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 5.0),
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               separatorBuilder: (context, index) => SizedBox(width: 8.0),
               itemCount: posters.length,
               itemBuilder: (context, index) => ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            child: Container(
-              width: MediaQuery.of(context).size.width/4,
-              height: 160,
-              decoration: BoxDecoration(
-                image:DecorationImage(image: NetworkImage(posters[index]),
-                fit: BoxFit.cover)
-              ),
-           ),
-          )),
-          
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 4,
+                      height: 160,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(posters[index]),
+                              fit: BoxFit.cover)),
+                    ),
+                  )),
         )
       ],
     );
